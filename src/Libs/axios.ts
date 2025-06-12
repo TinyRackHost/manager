@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getStoredToken, removeStoredToken } from "../Contexts/user.hooks";
+import { getStoredToken, removeStoredToken } from "../Contexts/user.context";
 
 export const Api = axios.create({
 	baseURL: import.meta.env.VITE_API_URL,

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { useUser } from "../../Contexts/user.hooks";
+import { useUser } from "../../Contexts/user.context";
 
 export const HomePage = () => {
 	const { user, logout } = useUser();

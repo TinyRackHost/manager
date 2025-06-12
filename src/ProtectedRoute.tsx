@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useUser } from "./Contexts/user.hooks";
+import { useUser } from "./Contexts/user.context";
 import { LoadingPage } from "./Pages/Loading/LoadingPage";
 
 type ProtectedRouteProps = {

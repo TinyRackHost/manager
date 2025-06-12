@@ -4,7 +4,7 @@ import { RegisterPage } from "./Pages/Auth/RegisterPage";
 import { NotFoundErrorPage } from "./Pages/Error/404";
 import { HomePage } from "./Pages/Home/HomePage";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { UserProvider } from "./Contexts/user.context";
+import { UserProvider } from "./Contexts/user.hooks";
 
 export const AppWrapper = () => {
 	return (

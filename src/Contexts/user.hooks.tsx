@@ -10,7 +10,7 @@ import {
 	setStoredToken,
 	UserContext,
 	type UserContextType,
-} from "./user.hooks";
+} from "./user.context";
 
 interface UserProviderProps {
 	children: ReactNode;

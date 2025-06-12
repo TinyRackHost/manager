@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../Contexts/user.hooks";
+import { useUser } from "../../Contexts/user.context";
 import { ApiRoutes } from "../../Enums/ApiRoutes.enum";
 import type { User } from "../../Interfaces/User";
 import { Api } from "../../Libs/axios";
