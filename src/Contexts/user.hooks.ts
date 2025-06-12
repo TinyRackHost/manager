@@ -34,11 +34,11 @@ export const useUser = (): UserContextType => {
 };
 
 export const getStoredToken = (): string | null => {
-	return Cookies.get("authToken") || null;
+	return Cookies.get("accessToken") || null;
 };
 
 export const setStoredToken = (token: string): void => {
-	Cookies.set("authToken", token, { 
+	Cookies.set("accessToken", token, { 
 		expires: 30, 
 		secure: true, 
 		sameSite: 'strict' 
@@ -46,7 +46,7 @@ export const setStoredToken = (token: string): void => {
 };
 
 export const removeStoredToken = (): void => {
-	Cookies.remove("authToken");
+	Cookies.remove("accessToken");
 };
 
 export const decodeJWT = (token: string): JWTPayload | null => {
