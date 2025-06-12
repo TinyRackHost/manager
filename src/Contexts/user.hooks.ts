@@ -1,8 +1,8 @@
-import { createContext, useContext } from "react";
-import { jwtDecode } from "jwt-decode";
+import dayjs from "dayjs";
 import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import { createContext, useContext } from "react";
 import type { User } from "../Interfaces/User";
-import * as dayjs from "dayjs";
 
 export interface JWTPayload {
 	exp?: number;
@@ -38,10 +38,10 @@ export const getStoredToken = (): string | null => {
 };
 
 export const setStoredToken = (token: string): void => {
-	Cookies.set("accessToken", token, { 
-		expires: 30, 
-		secure: true, 
-		sameSite: 'strict' 
+	Cookies.set("accessToken", token, {
+		expires: 30,
+		secure: true,
+		sameSite: "strict",
 	});
 };
 
