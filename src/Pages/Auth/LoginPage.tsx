@@ -29,13 +29,16 @@ export const LoginPage = () => {
 					password,
 				},
 			);
-
 			if (
 				response.data &&
 				response.data.user &&
 				response.data.accessToken
 			) {
-				login(response.data.user, response.data.accessToken);
+				login(
+					response.data.user,
+					response.data.accessToken,
+					response.data.refreshToken,
+				);
 				navigate("/");
 			}
 		} catch (error: unknown) {

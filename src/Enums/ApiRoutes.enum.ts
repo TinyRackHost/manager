@@ -11,6 +11,7 @@ export const Method = {
 export const ApiRoutes = {
 	AUTH: {
 		LOGIN: "/auth/login",
+		REFRESH: "/auth/refresh",
 	},
 	USER: {
 		ME: "/@me",

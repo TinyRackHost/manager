@@ -17,8 +17,9 @@ export interface UserContextType {
 	isLoading: boolean;
 	setIsLoading: (loading: boolean) => void;
 	isAuthenticated: boolean;
-	login: (user: User, token?: string) => void;
+	login: (user: User, token?: string, refreshToken?: string) => void;
 	logout: () => void;
+	refreshAccessToken: () => Promise<boolean>;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(
@@ -37,6 +38,10 @@ export const getStoredToken = (): string | null => {
 	return Cookies.get("accessToken") || null;
 };
 
+export const getStoredRefreshToken = (): string | null => {
+	return Cookies.get("refreshToken") || null;
+};
+
 export const setStoredToken = (token: string): void => {
 	Cookies.set("accessToken", token, {
 		expires: 30,
@@ -45,8 +50,20 @@ export const setStoredToken = (token: string): void => {
 	});
 };
 
+export const setStoredRefreshToken = (refreshToken: string): void => {
+	Cookies.set("refreshToken", refreshToken, {
+		expires: 30,
+		secure: true,
+		sameSite: "strict",
+	});
+};
+
 export const removeStoredToken = (): void => {
 	Cookies.remove("accessToken");
+};
+
+export const removeStoredRefreshToken = (): void => {
+	Cookies.remove("refreshToken");
 };
 
 export const decodeJWT = (token: string): JWTPayload | null => {
