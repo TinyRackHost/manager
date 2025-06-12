@@ -73,7 +73,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 					if (payload && payload.user) {
 						setUser(payload.user);
 					} else {
-						const response = await Api.get<User>(ApiRoutes.USER.ME);
+						const response = await Api.get<User>(ApiRoutes.USER.PROFILE);
 						setUser(response.data);
 					}
 				}

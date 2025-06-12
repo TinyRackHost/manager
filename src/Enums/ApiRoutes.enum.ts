@@ -14,6 +14,6 @@ export const ApiRoutes = {
 		REFRESH: "/auth/refresh",
 	},
 	USER: {
-		ME: "/@me",
+		PROFILE: "/@me/profile",
 	},
 };
