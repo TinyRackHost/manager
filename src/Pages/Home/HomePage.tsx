@@ -32,6 +32,28 @@ export const HomePage = () => {
 						<strong>Created At:</strong>{" "}
 						{dayjs(user.createdAt).format("HH:mm:ss DD/MM/YYYY")}
 					</p>
+					<div className="mt-4">
+						<h3 className="text-md font-semibold mb-2">VMs</h3>
+						<div className="flex">
+							{user.VMs?.map((vm, idx) => (
+								<div
+									key={vm.id}
+									className="bg-white shadow rounded p-3 mb-4"
+								>
+									<p>
+										<strong>VM ID:</strong> {vm.id}
+									</p>
+									<p>
+										<strong>VM Hostname:</strong>{" "}
+										{vm.hostname}
+									</p>
+									{idx < user.VMs.length - 1 && (
+										<hr className="my-3 border-gray-300" />
+									)}
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			)}
 
