@@ -179,7 +179,7 @@ export const VMCard: React.FC<VMCardProps> = ({
 			) : vm.status ? (
 				<div>
 					{vm.lastUpdated && (
-						<div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
+						<div className="text-xs text-gray-600 mb-4 flex items-center gap-1">
 							<svg
 								className="w-3 h-3"
 								fill="none"
@@ -193,8 +193,10 @@ export const VMCard: React.FC<VMCardProps> = ({
 									d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
-							Dernière mise à jour:
-							{vm.lastUpdated.toLocaleTimeString()}
+							Dernière mise à jour:{" "}
+							<b className="text-gray-700">
+								{vm.lastUpdated.toLocaleTimeString()}
+							</b>
 						</div>
 					)}
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
