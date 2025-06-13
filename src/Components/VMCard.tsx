@@ -193,15 +193,18 @@ export const VMCard: React.FC<VMCardProps> = ({
 									d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
-							Dernière mise à jour:{" "}
+							Dernière mise à jour:
 							{vm.lastUpdated.toLocaleTimeString()}
 						</div>
 					)}
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 						{/* Mémoire */}
 						<div className="bg-gray-50 p-4 rounded-lg">
-							<h4 className="text-sm font-medium text-gray-700 mb-2">
-								Mémoire
+							<h4 className="text-sm font-medium text-gray-700 mb-2 flex justify-between items-center">
+								<span>Mémoire</span>
+								<span className="text-lg font-bold text-blue-600">
+									{vm.status.memory.percent.toFixed(1)}%
+								</span>
 							</h4>
 							<div className="space-y-1">
 								<div className="flex justify-between text-sm">
@@ -224,22 +227,20 @@ export const VMCard: React.FC<VMCardProps> = ({
 										}}
 									></div>
 								</div>
-								<div className="text-xs text-gray-500 text-center">
-									{vm.status.memory.percent.toFixed(1)}%
-								</div>
 							</div>
 						</div>
-
 						{/* CPU */}
 						<div className="bg-gray-50 p-4 rounded-lg">
-							<h4 className="text-sm font-medium text-gray-700 mb-2">
-								CPU
+							<h4 className="text-sm font-medium text-gray-700 mb-2 flex justify-between items-center">
+								<span>CPU</span>
+								<span className="text-lg font-bold text-green-600">
+									{vm.status.cpu.percent < 0
+										? 0.0
+										: vm.status.cpu.percent.toFixed(1)}
+									%
+								</span>
 							</h4>
 							<div className="space-y-1">
-								<div className="flex justify-between text-sm">
-									<span>Utilisé:</span>
-									<span>{vm.status.cpu.used}</span>
-								</div>
 								<div className="flex justify-between text-sm">
 									<span>Cœurs:</span>
 									<span>{vm.status.cpu.max}</span>
@@ -252,12 +253,8 @@ export const VMCard: React.FC<VMCardProps> = ({
 										}}
 									></div>
 								</div>
-								<div className="text-xs text-gray-500 text-center">
-									{vm.status.cpu.percent.toFixed(1)}%
-								</div>
 							</div>
 						</div>
-
 						{/* Réseau */}
 						<div className="bg-gray-50 p-4 rounded-lg">
 							<h4 className="text-sm font-medium text-gray-700 mb-2">
@@ -278,7 +275,6 @@ export const VMCard: React.FC<VMCardProps> = ({
 								</div>
 							</div>
 						</div>
-
 						{/* Disque */}
 						<div className="bg-gray-50 p-4 rounded-lg md:col-span-3">
 							<h4 className="text-sm font-medium text-gray-700 mb-2">
