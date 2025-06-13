@@ -1,8 +1,11 @@
 import dayjs from "dayjs";
 import { useUser } from "../../Contexts/user.context";
+import { useVMStatus } from "../../Contexts/vm.hooks";
+import { VMCard } from "../../Components/VMCard";
 
 export const HomePage = () => {
 	const { user, logout } = useUser();
+	const { vmsWithStatus, refreshVMStatus, refreshAllStatuses, startVM, stopVM, restartVM } = useVMStatus(user?.VMs || []);
 
 	const handleLogout = () => {
 		logout();
@@ -31,28 +34,36 @@ export const HomePage = () => {
 					<p>
 						<strong>Created At:</strong>{" "}
 						{dayjs(user.createdAt).format("HH:mm:ss DD/MM/YYYY")}
-					</p>
-					<div className="mt-4">
-						<h3 className="text-md font-semibold mb-2">VMs</h3>
-						<div className="flex">
-							{user.VMs?.map((vm, idx) => (
-								<div
-									key={vm.id}
-									className="bg-white shadow rounded p-3 mb-4"
-								>
-									<p>
-										<strong>VM ID:</strong> {vm.id}
-									</p>
-									<p>
-										<strong>VM Hostname:</strong>{" "}
-										{vm.hostname}
-									</p>
-									{idx < user.VMs.length - 1 && (
-										<hr className="my-3 border-gray-300" />
-									)}
-								</div>
-							))}
+					</p>					<div className="mt-4">
+						<div className="flex justify-between items-center mb-4">
+							<h3 className="text-md font-semibold">VMs</h3>
+							<button
+								onClick={refreshAllStatuses}
+								className="text-blue-500 hover:text-blue-700 text-sm flex items-center gap-1"
+							>
+								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+								</svg>
+								Rafraîchir tout
+							</button>
 						</div>
+						{vmsWithStatus.length > 0 ? (							<div className="space-y-4">
+								{vmsWithStatus.map((vm) => (
+									<VMCard 
+										key={vm.id} 
+										vm={vm} 
+										onRefresh={refreshVMStatus}
+										onStart={startVM}
+										onStop={stopVM}
+										onRestart={restartVM}
+									/>
+								))}
+							</div>
+						) : (
+							<div className="text-center py-8 text-gray-500 bg-gray-50 rounded-lg">
+								<p>Aucune VM trouvée</p>
+							</div>
+						)}
 					</div>
 				</div>
 			)}

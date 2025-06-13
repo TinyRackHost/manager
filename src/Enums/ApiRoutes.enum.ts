@@ -16,4 +16,12 @@ export const ApiRoutes = {
 	USER: {
 		PROFILE: "/@me/profile",
 	},
+	VM: {
+		USER: (vmId: number) => ({
+			STATUS: `/vm/${vmId}/status`,
+			START: `/vm/${vmId}/power/start`,
+			STOP: `/vm/${vmId}/power/stop`,
+			REBOOT: `/vm/${vmId}/power/reboot`,
+		}),
+	},
 };
