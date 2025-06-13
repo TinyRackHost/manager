@@ -77,16 +77,23 @@ export const VMCard: React.FC<VMCardProps> = ({
 								title="Démarrer la VM"
 							>
 								<svg
-									className="w-4 h-4"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
+									className="w-5 h-5"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									aria-hidden="true"
 								>
+									<circle
+										cx="10"
+										cy="10"
+										r="9"
+										className="text-green-100"
+										fill="#bbf7d0"
+									/>
 									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M9 12l2 2 4-4m6-6a9 9 0 11-18 0 9 9 0 0118 0z"
+										fillRule="evenodd"
+										clipRule="evenodd"
+										d="M13.707 8.293a1 1 0 00-1.414 0L9 11.586 7.707 10.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414z"
+										fill="#16a34a"
 									/>
 								</svg>
 							</button>
@@ -100,22 +107,27 @@ export const VMCard: React.FC<VMCardProps> = ({
 									title="Arrêter la VM"
 								>
 									<svg
-										className="w-4 h-4"
+										className="w-5 h-5"
 										fill="none"
-										stroke="currentColor"
 										viewBox="0 0 24 24"
+										stroke="currentColor"
+										aria-hidden="true"
 									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+										<circle
+											cx="12"
+											cy="12"
+											r="10"
+											stroke="#f87171"
+											strokeWidth="2"
+											fill="#fee2e2"
 										/>
 										<rect
 											x="9"
 											y="9"
 											width="6"
 											height="6"
+											rx="1"
+											fill="#ef4444"
 										/>
 									</svg>
 								</button>
