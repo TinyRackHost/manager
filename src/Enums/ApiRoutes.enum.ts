@@ -18,10 +18,10 @@ export const ApiRoutes = {
 	},
 	VM: {
 		USER: (vmId: number) => ({
-			STATUS: `/vm/${vmId}/status`,
-			START: `/vm/${vmId}/power/start`,
-			STOP: `/vm/${vmId}/power/stop`,
-			REBOOT: `/vm/${vmId}/power/reboot`,
+			STATUS: `/@me/vm/${vmId}/status`,
+			START: `/@me/vm/${vmId}/power/start`,
+			STOP: `/@me/vm/${vmId}/power/stop`,
+			REBOOT: `/@me/vm/${vmId}/power/reboot`,
 		}),
 	},
 };
